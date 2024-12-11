@@ -36,7 +36,7 @@
               inherit (platforms.${pkgs.stdenv.hostPlatform.system}) platformUrl projectArchCmake hash;
             in
             (prev: rec {
-              version = "131.3.1+gcb062df+chromium-131.0.6778.109";
+              version = "109.1.18+gf1c41e4+chromium-109.0.5414.120";
 
               src = pkgs.fetchzip {
                 inherit hash;
