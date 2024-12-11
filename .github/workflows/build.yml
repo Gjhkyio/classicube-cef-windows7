@@ -83,16 +83,6 @@ jobs:
             -Path 'target\${{ matrix.config.target }}\release\cef.exe' `
             -Destination '.\cef-windows-${{ matrix.config.arch }}.exe'
 
-      - name: VirusTotal Scan
-        uses: crazy-max/ghaction-virustotal@v4
-        if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        id: virustotal
-        with:
-          vt_api_key: ${{ secrets.VT_API_KEY }}
-          files: |
-            classicube_cef_windows_${{ matrix.config.arch }}.dll
-            cef-windows-${{ matrix.config.arch }}.exe
-
       - name: Generate Release Body Text
         if: ${{ startsWith(github.ref, 'refs/tags/') && matrix.config.arch == 'x86_64' }}
         run: |
