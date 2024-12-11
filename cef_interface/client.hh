@@ -47,7 +47,7 @@ class MyClient : public CefClient,
   bool DoClose(CefRefPtr<CefBrowser> browser) override;
   void OnAfterCreated(CefRefPtr<CefBrowser> browser) override;
   void OnBeforeClose(CefRefPtr<CefBrowser> browser) override;
-#if CEF_VERSION_MAJOR >= 131
+#if CEF_VERSION_MAJOR >= 109
   bool OnBeforePopup(
       CefRefPtr<CefBrowser> browser,
       CefRefPtr<CefFrame> frame,
@@ -130,7 +130,7 @@ class MyClient : public CefClient,
                   bool& suppress_message) override;
 
   // CefDialogHandler methods:
-#if CEF_VERSION_MAJOR >= 126
+#if CEF_VERSION_MAJOR >= 109
   bool OnFileDialog(CefRefPtr<CefBrowser> browser,
                     FileDialogMode mode,
                     const CefString& title,
@@ -140,7 +140,7 @@ class MyClient : public CefClient,
                     const std::vector<CefString>& accept_descriptions,
                     CefRefPtr<CefFileDialogCallback> callback) override;
 
-#elif CEF_VERSION_MAJOR > 101
+#elif CEF_VERSION_MAJOR > 109
   bool OnFileDialog(CefRefPtr<CefBrowser> browser,
                     FileDialogMode mode,
                     const CefString& title,
@@ -162,7 +162,7 @@ class MyClient : public CefClient,
                    const CefString& url,
                    const CefString& request_method) override;
 
-#if CEF_VERSION_MAJOR >= 125
+#if CEF_VERSION_MAJOR >= 109
   bool OnBeforeDownload(CefRefPtr<CefBrowser> browser,
                         CefRefPtr<CefDownloadItem> download_item,
                         const CefString& suggested_name,
